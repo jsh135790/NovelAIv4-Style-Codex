@@ -1,0 +1,473 @@
+:root {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --primary: #bb86fc;
+    --secondary: #feaff0;
+    --text: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --accent: #cf6679;
+    --blur-color: rgba(187, 134, 252, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* 顶部标题区域 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+header h1 {
+    display: flex;
+    align-items: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--blur-color);
+}
+
+.title-icon {
+    margin-right: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.title-icon svg {
+    width: 32px;
+    height: 32px;
+    stroke: var(--primary);
+}
+
+.author-tag {
+    background-color: var(--card-bg);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+    box-shadow: 0 0 15px var(--blur-color);
+}
+
+/* 信息提示框 */
+.info-box {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: flex-start;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.info-icon {
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.info-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--secondary);
+}
+
+.info-content p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* 视图控制按钮 */
+.view-controls {
+    display: flex;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+}
+
+.view-controls button {
+    background-color: var(--card-bg);
+    color: var(--text);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.view-controls button:hover {
+    background-color: rgba(187, 134, 252, 0.2);
+}
+
+.view-controls button.active {
+    background-color: var(--primary);
+    color: #000;
+}
+
+/* 艺术家列表区域 */
+.artists-container {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.artists-header {
+    display: grid;
+    grid-template-columns: 80px 80px 1fr 1fr;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.artists-list {
+    max-height: 1600vh;
+    overflow-y: auto;
+}
+
+.artist-row {
+    display: grid;
+    grid-template-columns: 80px 80px 1fr 1fr;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.artist-row:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.favorite-col {
+    text-align: center;
+}
+
+.number-col {
+    text-align: center;
+}
+
+.artist-number {
+    display: inline-block;
+    background-color: rgba(254, 175, 240, 0.15);
+    color: var(--secondary);
+    font-weight: 600;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid rgba(254, 175, 240, 0.3);
+    min-width: 40px;
+    text-align: center;
+}
+
+.artist-col {
+    font-family: monospace;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-right: 1rem;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.pic-col {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    max-height: 380px;
+}
+
+.pic-col img {
+    width: auto;
+    max-width: 256px;
+    max-height: 360px;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    object-fit: contain;
+}
+
+.pic-col img:hover {
+    transform: scale(1.05);
+}
+
+.fav-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.fav-btn:hover {
+    color: var(--accent);
+}
+
+.fav-btn.active {
+    color: var(--accent);
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .artists-header, .artist-row {
+        grid-template-columns: 60px 60px 1fr;
+    }
+    
+    .pic-col {
+        grid-column: span 3;
+        margin-top: 1rem;
+        text-align: center;
+    }
+}
+
+/* 回到顶部按钮样式 */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: var(--secondary);
+    transform: translateY(-5px);
+}
+
+.back-to-top i {
+    font-size: 1.5rem;
+}
+
+/* 开屏公告样式 */
+.announcement-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    backdrop-filter: blur(8px);
+}
+
+.announcement-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.announcement-content {
+    background-color: var(--card-bg);
+    width: 90%;
+    max-width: 800px;
+    max-height: 85vh;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    animation: modalFadeIn 0.5s ease forwards;
+    display: flex;
+    flex-direction: column;
+}
+
+.announcement-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.announcement-header h2 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.announcement-header svg {
+    stroke: var(--primary);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+}
+
+.announcement-body {
+    padding: 1.5rem;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.announcement-body p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.announcement-body h3 {
+    color: var(--secondary);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.announcement-body ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.announcement-body li {
+    margin-bottom: 0.5rem;
+}
+
+.announcement-image {
+    margin: 1.5rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+.announcement-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.image-caption {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    margin-bottom: 0 !important;
+}
+
+.announcement-signature {
+    margin-top: 2rem;
+    text-align: right;
+    font-style: italic;
+    color: var(--secondary);
+}
+
+@keyframes modalFadeIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .announcement-content {
+        width: 95%;
+        max-height: 90vh;
+    }
+    
+    .announcement-header {
+        padding: 0.75rem 1rem;
+    }
+    
+    .announcement-body {
+        padding: 1rem;
+    }
+} 

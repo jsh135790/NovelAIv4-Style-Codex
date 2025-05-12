@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAIv4 FULL画师串法典</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 开屏公告模态窗 -->
+    <div id="announcement-modal" class="announcement-modal">
+        <div class="announcement-content">
+            <div class="announcement-header">
+                <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    公告
+                </h2>
+                <button id="close-announcement" class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="announcement-body">
+                <!-- 公告内容可以在这里添加 -->
+                <p>欢迎使用NovelAI v4模型画师串效果对比工具！</p>
+                <p>本工具旨在帮助您更好地了解不同画师风格在NAI v4模型下的表现效果。</p>
+                <p>获取及时更新请添加交流群↓↓↓↓↓↓</p>
+                <div class="announcement-image">
+                    <img src="https://files.catbox.moe/y20hyf.jpg" alt="QQgroup">
+                    <p class="image-caption">QQ群二维码(QQ group QR code)</p>
+                </div>
+                <h3>使用说明：</h3>
+                <ul>
+                    <li>点击❤️按钮可将画师添加到收藏列表</li>
+                    <li>使用顶部的"仅显示收藏"按钮可以快速筛选您喜欢的画师</li>
+                    <li>所有收藏将保存在浏览器中，下次访问时自动恢复</li>
+                </ul>
+                <p>祝您创作愉快！</p>
+                <p class="announcement-signature">— Pilot1337</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1>
+                <span class="title-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                </span>
+                NAIv4 FULL Artists walkthrough
+            </h1>
+            <div class="author-tag">
+                <span>Author:Pilot1337</span>
+            </div>
+        </header>
+
+        <div class="info-box">
+            <div class="info-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+            </div>
+            <div class="info-content">
+                <p>本文档展示了NovelAI v4模型下不同画师串的效果对比。所有图片均使用相同的基础提示词，仅更改画师串部分。
+                    基础参数：Steps: 28, CFG: 6, Size: 832x1216, Sampler: DPM++ 2M SDE。
+                    <br>
+                    我们的提示词遵循以下结构: x boy/girl, Framing Method, Artist tag(including Year tag, e.g. year 2024), Background, Actions.
+                    <br>
+                    提示词1: girl, x-shaped pupils, long hair, short bangs, hairband, blazer, light blush, taut shirt
+                    <br>
+                    提示词2: girl, x-shaped pupils, long hair, short bangs, hairband, blazer, light blush, bikini
+                </p>
+            </div>
+        </div>
+
+        <div class="view-controls">
+            <button id="show-all" class="active">显示全部</button>
+            <button id="show-favorites">仅显示收藏</button>
+            <button id="show-announcement">显示公告</button>
+        </div>
+
+        <div class="artists-container">
+            <div class="artists-header">
+                <div class="favorite-col">收藏</div>
+                <div class="number-col">NO.</div>
+                <div class="artist-col">Artist</div>
+                <div class="pic-col">Pic</div>
+            </div>
+            <div class="artists-list" id="artists-list">
+                <!-- 艺术家列表通过JavaScript动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 回到顶部按钮 -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html> 

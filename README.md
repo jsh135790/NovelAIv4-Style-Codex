@@ -48,7 +48,7 @@ NOT SUPPORTED
 
 1. Clone the repository | 克隆仓库
    ```bash
-   git clone https://github.com/yourusername/NovelAIv4-Style-Codex.git
+   git clone https://github.com/jsh135790/NovelAIv4-Style-Codex.git
    cd NovelAIv4-Style-Codex
    ```
 
